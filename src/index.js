@@ -7,7 +7,7 @@ import { ValveMesh, PipelineMesh } from '@objects';
 import { COLOR, DIRECTION } from '@constants';
 
 // panel example
-import { insertTextList, insertCheckboxList, removeListItems, } from "./component/panel.ts";
+import { insertTextList, insertCheckboxList, removeListItems, initializeDrag} from "./component/panel.ts";
 
 function removeList(checked) {
     if (!checked) removeListItems();
@@ -45,6 +45,7 @@ for (const property of propertys) {
         );
 }
 // End
+initializeDrag();
 
 let camera, scene, renderer, controls, stats;
 
@@ -236,7 +237,7 @@ function onWindowResize() {
 
 function onMouseDown(event) {
 
-    event.preventDefault();
+    // event.preventDefault();
 
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
